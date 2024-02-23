@@ -14,11 +14,16 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, string ...$guards): Response
     {
-        if(!Auth::guard('admin')->check()){
-            return redirect('admin/login');
+        $guards = empty($guards) ? [null] : $guards;
+        foreach ($guards as $guard) {
+
+            if($guard == "admin" && Auth::guard('admin')->check()){
+                return redirect('admin/dashboard');
+            }
         }
+
         return $next($request);
     }
 }

@@ -14,7 +14,7 @@
             <div class="col-md-6">
                 <h2 class="py-5">Admin Dashboard</h2>
                 <h4 class="py-2">Welcome !!</h4>
-                <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+                <a href="{{ route('admin.logout') }}" class="btn btn-danger">Logout</a>
 
             </div>
         </div>

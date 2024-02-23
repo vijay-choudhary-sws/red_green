@@ -28,7 +28,7 @@
                     <p class="alert alert-info">{{ Session::get('error-message') }}</p>
                 @endif
 
-                <form action="{{ route('login.functionality') }}" method="post">
+                <form action="{{ route('admin.login.functionality') }}" method="post">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Email address</label>
